@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 const StyledPage = styled.div`
   height: 100vh;
-  width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Page = (props) => {
