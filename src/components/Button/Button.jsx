@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const StyledButton = styled.button`
   background-color: #1e88e5;
@@ -6,10 +7,18 @@ const StyledButton = styled.button`
   color: #ffffff;
   padding: 10px 15px;
   border-radius: 4px;
+  cursor: pointer;
 `;
 
 const Button = (props) => {
-  return <StyledButton>{props.buttonText}</StyledButton>;
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate(props.path);
+  };
+  return (
+    <StyledButton onClick={handleNavigation}>{props.buttonText}</StyledButton>
+  );
 };
 
 export default Button;

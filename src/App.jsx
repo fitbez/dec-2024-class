@@ -1,9 +1,11 @@
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
-import Page from "./components/Page/Page";
-import Hero from "./components/Hero/Hero";
-import Header from "./components/Header/Header";
-import EmployeeList from "./components/EmployeeList/EmployeeList";
+import HomePage from "./pages/Home";
+import EmployeeListPage from "./pages/EmployeeList";
+import LoginPage from "./pages/Login";
+import { Routes, Route } from "react-router-dom";
+import AddEmployeePage from "./pages/AddEmployee";
+import RegisterPage from "./pages/Register";
 
 const data = [
   {
@@ -60,11 +62,16 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Page>
-        <Header />
-        <Hero />
-        <EmployeeList employeeData={data} />
-      </Page>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="employee-list"
+          element={<EmployeeListPage employeeData={data} />}
+        />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="add-employee" element={<AddEmployeePage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Routes>
     </div>
   );
 }

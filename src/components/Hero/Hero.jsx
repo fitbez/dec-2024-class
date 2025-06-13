@@ -24,8 +24,8 @@ const Hero = () => {
         incidunt magni illo ab accusantium nam eos natus nostrum. Corporis, non.
       </p>
       <StyledButtonContainer>
-        <Button buttonText="LOGIN" />
-        <Button buttonText="REGISTER" />
+        <Button buttonText="LOG IN" path="login" />
+        <Button buttonText="SIGN UP" path="register" />
       </StyledButtonContainer>
     </StyledHero>
   );

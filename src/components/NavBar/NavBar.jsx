@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -15,17 +16,41 @@ const StyledMenu = styled.ul`
   list-style: none;
 `;
 
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: #fff;
+`;
+
+// TODO: add active link styling on the NavLink
+
 function NavBar() {
   return (
     <StyledNav>
       <div>
-        <h3>TEST APP</h3>
+        <h3>
+          <StyledNavLink to="/">EMPLOYEE MANAGEMENT</StyledNavLink>
+        </h3>
       </div>
       <StyledMenu>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Login</li>
+        <li>
+          <StyledNavLink to="employee-list">EMPLOYEE LIST</StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="add-employee">ADD EMPLOYEE</StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink
+            style={({ isActive }) => ({
+              borderBottom: isActive ? "1px solid #333" : "none",
+            })}
+            to="login"
+          >
+            LOG IN
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="register">SIGN UP</StyledNavLink>
+        </li>
       </StyledMenu>
     </StyledNav>
   );
