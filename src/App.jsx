@@ -6,6 +6,7 @@ import LoginPage from "./pages/Login";
 import { Routes, Route } from "react-router-dom";
 import AddEmployeePage from "./pages/AddEmployee";
 import RegisterPage from "./pages/Register";
+import { useState } from "react";
 
 const data = [
   {
@@ -59,6 +60,8 @@ const data = [
 ];
 
 function App() {
+  const [employeeDetail, setEmployeeDetail] = useState({});
+
   return (
     <div>
       <NavBar />
@@ -66,10 +69,19 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route
           path="employee-list"
-          element={<EmployeeListPage employeeData={data} />}
+          element={
+            <EmployeeListPage
+              employeeData={data}
+              employeeDetail={employeeDetail}
+              setEmployeeDetail={setEmployeeDetail}
+            />
+          }
         />
         <Route path="login" element={<LoginPage />} />
-        <Route path="add-employee" element={<AddEmployeePage />} />
+        <Route
+          path="add-employee"
+          element={<AddEmployeePage employeeData={data} />}
+        />
         <Route path="register" element={<RegisterPage />} />
       </Routes>
     </div>

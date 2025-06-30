@@ -1,10 +1,10 @@
 import AddEmployee from "../components/AddEmployee/AddEmployee";
 import Page from "../components/Page/Page";
 
-function AddEmployeePage() {
+function AddEmployeePage(props) {
   return (
     <Page>
-      <AddEmployee />
+      <AddEmployee employeeData={props.employeeData} />
     </Page>
   );
 }
