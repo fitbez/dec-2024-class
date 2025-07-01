@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { EmployeeContext } from "../../context";
 
 const FormContainer = styled.div`
   max-width: 400px;
@@ -36,7 +37,8 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-function AddEmployee(props) {
+function AddEmployee() {
+  const { employeeData } = useContext(EmployeeContext);
   const navigate = useNavigate();
   //TODO: add a form that accepts employee information
   const [formData, setFormData] = useState({
@@ -48,7 +50,7 @@ function AddEmployee(props) {
     title: "",
     profilePicture: "",
   });
-  const [records, setRecords] = useState(props.employeeData);
+  const [records, setRecords] = useState(employeeData);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -155,14 +157,6 @@ function AddEmployee(props) {
           <Button type="submit">SUBMIT</Button>
         </form>
       </FormContainer>
-      {records.map((item) => {
-        return (
-          <>
-            <h2>{item.firstName}</h2>
-            <img src={item.profilePicture} alt="" />
-          </>
-        );
-      })}
     </>
   );
 }

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { EmployeeContext } from "../../context";
 
 const StyledImage = styled.img`
   width: 50px;
@@ -37,7 +38,9 @@ const StyledSearchInput = styled.input`
   border-radius: 4px;
 `;
 
-function EmployeeList({ employeeData, setEmployeeDetail }) {
+function EmployeeList({ setEmployeeDetail }) {
+  const { employeeData } = useContext(EmployeeContext);
+
   const [search, setSearch] = useState("");
   const [records, setRecords] = useState(employeeData);
 

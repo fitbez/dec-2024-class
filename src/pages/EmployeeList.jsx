@@ -7,20 +7,14 @@ const StyledEmployeeSection = styled.div`
   display: flex;
 `;
 
-function EmployeeListPage({ employeeData, setEmployeeDetail, employeeDetail }) {
+function EmployeeListPage({ setEmployeeDetail, employeeDetail }) {
   return (
     <Page>
       <StyledEmployeeSection>
         <div>
-          <EmployeeList
-            employeeData={employeeData}
-            setEmployeeDetail={setEmployeeDetail}
-          />
+          <EmployeeList setEmployeeDetail={setEmployeeDetail} />
         </div>
-        <EmployeeDetail
-          employeeData={employeeData}
-          employeeDetail={employeeDetail}
-        />
+        <EmployeeDetail employeeDetail={employeeDetail} />
       </StyledEmployeeSection>
     </Page>
   );
